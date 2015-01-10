@@ -6,14 +6,15 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:38:42 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 20:09:22 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Game.hpp>
 #include <curses.h>
+#include <unistd.h>
 
-Game::Game( void ) : _playerName("playerOne"), _score(0) {
+Game::Game( void ) : _playerName("playerOne"), _score(0), _playerShip(new PlayerShip()) {
 }
 
 Game::Game( Game const & src ) {
@@ -22,7 +23,8 @@ Game::Game( Game const & src ) {
 
 Game::Game( std::string const playerName ) :
 	_playerName(playerName),
-	_score(0)
+	_score(0),
+	_playerShip(new PlayerShip())
 {
 }
 
@@ -37,7 +39,7 @@ Game&			Game::operator=( Game const & rhs ) {
 	return *this;
 }
 
-PlayerShip&		Game::getPlayerShip( void ) {
+PlayerShip*		Game::getPlayerShip( void ) {
 	return this->_playerShip;
 }
 
@@ -46,17 +48,31 @@ std::string const	Game::getPlayerName( void ) const {
 }
 
 void			Game::doLoop( void ) {
-	int			key;
+	int			key = 42;
 
-	timeout(10);
-	key = this->getInput();
-	if (key != -1) {
-
+	while (key != 'q') {
+		key = this->getInput();
+		if (key != -1) {
+			this->getPlayerShip()->move(key);
+		}
+		this->updateEntities();
+		this->renderDisplay();
+		sleep(0.5);
 	}
 }
 
+void			Game::updateEntities( void ) {
+}
+
+void			Game::renderDisplay( void ) {
+	IGameEntity	*tmp;
+	tmp = (IGameEntity *)this->_playerShip;
+	this->getMapWindow()->drawWindow(tmp);
+}
+
 int				Game::getInput( void ) {
-	
+	int			key = getch();
+	return key;
 }
 
 void			Game::initMap( int width, int height, int x, int y ) {

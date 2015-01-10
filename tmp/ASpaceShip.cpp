@@ -6,11 +6,12 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:09:29 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:44:11 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ASpaceShip.hpp>
+#include <ncurses.h>
 
 ASpaceShip::ASpaceShip( void ) {
 }
@@ -51,6 +52,23 @@ void			ASpaceShip::takeDamage( int amount ) {
 
 bool			ASpaceShip::isAlive( void ) const {
 	return this->_alive;
+}
+
+void			ASpaceShip::move( int key ) {
+	switch (key) {
+		case KEY_LEFT :
+			this->move( 0, -1 );
+			break;
+		case KEY_RIGHT :
+			this->move( 0, +1 );
+			break;
+		case KEY_UP :
+			this->move( -1, 0 );
+			break;
+		case KEY_DOWN :
+			this->move( +1, 0 );
+			break;
+	}
 }
 
 void			ASpaceShip::move( int x, int y ) {

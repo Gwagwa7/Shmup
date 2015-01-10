@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:23:07 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 19:15:14 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:57:37 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,11 @@
 		}
 		wrefresh(this->getWindow());
 		return;
+	}
+
+	void			MapWindow::drawWindow( IGameEntity* entity ) const {
+		std::string *s = new std::string(1, entity->getC());
+		mvwprintw(this->getWindow() , entity->getX() , entity->getY() , s->c_str());
+		delete s;
+		wrefresh(this->getWindow());
 	}

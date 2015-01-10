@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:56:56 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:22:25 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:49:33 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Game {
 		MapWindow const		*_map;
 		ScoreWindow const	*_score;
 		IGameEntity			*_entities[21];
-		PlayerShip			_playerShip;
+		PlayerShip			*_playerShip;
 		int					_scorePoint;
 
 	public	:
@@ -38,7 +38,7 @@ class Game {
 		void				updateEntities( void );
 		void				renderDisplay( void );
 		void				doLoop( void );
-		PlayerShip			&getPlayerShip( void );
+		PlayerShip			*getPlayerShip( void );
 		void				initMap( int width, int height, int x, int y );
 		void				initScore( int width, int height, int x, int Y );
 		void				destroyMap( void );

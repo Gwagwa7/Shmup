@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 19:45:01 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 20:05:46 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@
 		raw();
 		curs_set(0);
 		timeout(10);
+		keypad(stdscr, true);
 	}
 
 	void		AWindow::closeScreen( void )

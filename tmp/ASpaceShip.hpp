@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:52:04 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:10:39 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:44:09 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class ASpaceShip : public IGameEntity {
 		~ASpaceShip( void );
 		ASpaceShip&		operator=( ASpaceShip const & rhs );
 		void			move( int x, int y);
+		void			move( int key );
 		virtual void	attack( void ) = 0;
 		void			takeDamage( int amount );
 		bool			isAlive( void ) const;
