@@ -30,7 +30,7 @@ int main(int ac, char **av)
 		game = init_game(av[1]);
 
 		game->initMap(200, 50, 0, 0);
-		game->getMapWindow()->drawWindow(tmp);
+		game->getMapWindow()->drawWindow(tmp, 50);
 		sleep(5);
 		std::cout << "Je suis le joueur " << game->getPlayerName() << std::endl;
 		std::cout << "Il me reste " << game->getPlayerShip().getLive() << " vie." << std::endl;

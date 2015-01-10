@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:23:07 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 18:53:00 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:01:35 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@
 		return *this;
 	}
 
-	void			MapWindow::drawWindow( IGameEntity** entities ) const
+	void			MapWindow::drawWindow( IGameEntity** entities, int nb_obj ) const
 	{
-		for (int i = 0; i < 50; i ++) {
+		for (int i = 0; i < nb_obj; i ++) {
 
 			mvwprintw(this->getWindow() , entities[i]->getX() , entities[i]->getY() , "*");
 	   		
