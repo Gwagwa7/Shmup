@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:59:25 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 23:37:11 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,6 @@ int const		ASpaceShip::getC( void ) const {
 	return this->_C;
 }
 
-Bullet			**ASpaceShip::getBullets( void ) {
+Bullet			**ASpaceShip::getBullet( void ) {
 	return this->_bullets;
-}
-
-Bullet			*ASpaceShip::getBullet( int ind ) {
-	return this->_bullets[ind];
 }

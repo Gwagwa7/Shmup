@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:55:05 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 23:41:25 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void			Game::doLoop( void ) {
 			this->getPlayerShip()->move(key);
 		}
 		this->updateEntities();
-//		this->renderDisplay();
-		sleep(1);
+		this->renderDisplay();
+		usleep(100);
 	}
 }
 
@@ -74,9 +74,12 @@ void			Game::updateEntities( void ) {
 }
 
 void			Game::renderDisplay( void ) {
-	IGameEntity	*tmp = (IGameEntity *)this->_playerShip;
-	this->getMapWindow()->drawWindow(tmp);
+	IGameEntity	*spaceShip = (IGameEntity *)this->_playerShip;
+	Bullet		**tmp = this->_playerShip->getBullet();
+	IGameEntity **bullets = (IGameEntity **)tmp;
+	this->getMapWindow()->drawWindow(spaceShip);
 	this->getMapWindow()->drawWindow(this->_entities, 50);
+//	this->getMapWindow()->drawWindow(bullets, 50);
 	this->getScoreWindow()->drawWindow(this);
 }
 
