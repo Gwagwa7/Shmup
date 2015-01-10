@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:23:07 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 22:20:51 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 23:45:12 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,17 @@
 	void			MapWindow::drawWindow( IGameEntity** entities, int nb_obj ) const
 	{
 
-		if (entities[0]) 
-		{
-			wclear(this->getWindow());
-			this->borderWindow();
-			std::string	*s;
-			for (int i = 0; i < nb_obj; i ++) {
+
+		wclear(this->getWindow());
+		this->borderWindow();
+		std::string	*s;
+		for (int i = 0; i < nb_obj; i ++) {
+			if (entities[i])
+			{
 				s = new std::string(1, entities[i]->getC());
 				mvwprintw(this->getWindow() , entities[i]->getX() , entities[i]->getY() , s->c_str());
-	   			delete s;
+				delete s;
 			}
-			wrefresh(this->getWindow());
 		}
 		return;
 	}
@@ -75,7 +75,6 @@
 			std::string *s = new std::string(1, entity->getC());
 			mvwprintw(this->getWindow() , entity->getX() , entity->getY() , s->c_str());
 			delete s;
-			wrefresh(this->getWindow());
 		}
 		return;
 	}

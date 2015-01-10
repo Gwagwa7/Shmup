@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 22:14:42 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 23:46:45 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,11 @@
 		}
 
 		return;
+	}
+
+	void		AWindow::refresh( void ) const
+	{
+		wrefresh(this->getWindow());
 	}
 
 

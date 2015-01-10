@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 19:05:39 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 22:19:26 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:47:43 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define SCOREWINDOW_HPP
 
 # include "AWindow.hpp"
+# include <iostream>
 // # include <Game.hpp>
 class Game;
 
@@ -33,6 +34,11 @@ public:
 	/* fonction membre */
 	void	drawWindow( void ) const;
 	void	drawWindow( Game * game ) const;
+	void	print( std::string str);
+
+
+private:
+	std::string		_str;
 
 
 };

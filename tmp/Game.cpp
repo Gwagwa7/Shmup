@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 23:41:25 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 23:47:42 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void			Game::doLoop( void ) {
 		}
 		this->updateEntities();
 		this->renderDisplay();
-		usleep(100);
+		usleep(100000000);
 	}
 }
 
@@ -81,6 +81,8 @@ void			Game::renderDisplay( void ) {
 	this->getMapWindow()->drawWindow(this->_entities, 50);
 //	this->getMapWindow()->drawWindow(bullets, 50);
 	this->getScoreWindow()->drawWindow(this);
+	this->getMapWindow()->refresh();
+	this->getScoreWindow()->refresh();
 }
 
 int				Game::getInput( void ) {
