@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:17:35 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:45:35 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 23:57:02 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Bullet&		Bullet::operator=( Bullet const & rhs ) {
 }
 
 void		Bullet::move( void ) {
-	this->_X += 1;
+	this->_Y += 1;
 }
 
 int			Bullet::getX( void ) const {
@@ -48,6 +48,5 @@ int const	Bullet::getC( void ) const {
 }
 
 void		Bullet::update( void ) {
-	std::cout << "Update Bullet" << std::endl;
 	this->move();
 }

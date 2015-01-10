@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 23:54:38 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 23:56:41 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ void			Game::renderDisplay( void ) {
 	IGameEntity	*spaceShip = (IGameEntity *)this->_playerShip;
 	Bullet		**tmp = this->_playerShip->getBullet();
 	IGameEntity **bullets = (IGameEntity **)tmp;
+
+	this->getMapWindow()->clear();
+	this->getScoreWindow()->clear();
 	this->getMapWindow()->drawWindow(spaceShip);
 //	this->getMapWindow()->drawWindow(this->_entities, 50);
 	this->getMapWindow()->drawWindow(bullets, 50);
