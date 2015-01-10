@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:22:44 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 19:56:19 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 21:56:30 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
 	MapWindow & 	operator=( MapWindow const & obj );
 
 	/* fonction membre */
+	void	drawWindow( void ) const;
 	void	drawWindow( IGameEntity** entities, int nb_obj ) const;
 	void	drawWindow( IGameEntity* entity ) const;
 };

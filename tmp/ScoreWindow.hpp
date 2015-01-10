@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 19:05:39 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 19:24:09 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:10:55 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # define SCOREWINDOW_HPP
 
 # include "AWindow.hpp"
+// # include <Game.hpp>
+class Game;
 
 class ScoreWindow : public AWindow {
 
@@ -29,7 +31,8 @@ public:
 	ScoreWindow & 	operator=( ScoreWindow const & obj );
 
 	/* fonction membre */
-	void	drawWindow( IGameEntity** entities, int nb_obj ) const;
+	void	drawWindow( void ) const;
+	void	drawWindow( Game & game ) const;
 
 
 };

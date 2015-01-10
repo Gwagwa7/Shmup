@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 21:30:03 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:10:51 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ public:
 
 	void			borderWindow( void ) const;
 
-	virtual void	drawWindow( IGameEntity** entities, int nb_obj ) const = 0;
+	virtual void	drawWindow( void ) const = 0;
 
 
 	/* get and set */
