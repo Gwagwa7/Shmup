@@ -6,11 +6,12 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 16:00:24 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 16:25:43 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Enemy.hpp>
+#include <Bullet.hpp>
 #include <iostream>
 
 Enemy::Enemy( void ) : ASpaceShip(100,  60, 50, 10, 10) {
@@ -43,5 +44,5 @@ void					Enemy::attack( void ) {
 			break ;
 		}
 	}
-//	this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
+	this->_bullets[ind] = new Bullet(this->_X + 1, this->_Y);
 }

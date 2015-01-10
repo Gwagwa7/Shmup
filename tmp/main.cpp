@@ -1,24 +1,43 @@
 #include <PlayerShip.hpp>
+#include <Bullet.hpp>
 #include <Enemy.hpp>
 #include <AWindow.hpp>
 #include <iostream>
 #include <unistd.h>
+#include <ctime>
+#include <cstdlib>
+
+int		test(IGameEntity** entities) {
+	for (int i = 0; i < 50; i ++) {
+		std::cout << entities[i]->getX() << std::endl;
+	}
+}
 
 int main(void)
 {
-/*	ASpaceShip*	objects[50];
+/*	ASpaceShip*	object = new PlayerShip(20, 3, 10, 3, 3);
+	srand(time(NULL));
+	int randd = 0;
 
-	for ( int i = 1; i < 51; i++ ) {
-		objects[i - 1] = new Enemy(20 * i, 3 * i, 10 * i, 3 * i, 3 * i);
-	}
 	for ( int i = 0; i < 50; i++ ) {
-		std::cout << "X: " << objects[i]->getX() << " Y: " << objects[i]->getY() << std::endl;
+		randd = rand() % 4;
+		if (randd % 4 == 0) {
+			object->move(1, 0);
+		} else if (randd % 4 == 1) {
+			object->move(-1, 0);
+		} else if (randd % 4 == 2) {
+			object->move(0, 1);
+		} else if (randd % 4 == 3) {
+			object->move(0, -1);
+		}
+		std::cout << "Object X: " << object->getX() << " Y: " << object->getY() << std::endl;
 	}*/
 
-	AWindow		*window = new AWindow();
-
-	window->initScreen();
-	window->initNewWindow(50, 200, 0, 0);
-	sleep(10);
-	window->closeScreen();
+	Bullet *objects[50];
+	IGameEntity **tmp;
+	tmp = (IGameEntity**)objects;
+	for (int i = 0; i < 50; i++) {
+		objects[i] = new Bullet();
+	}
+	test(tmp);
 }
