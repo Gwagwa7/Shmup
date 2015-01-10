@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 19:11:18 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 22:01:36 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:20:07 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@
 	}
 
 
-	void			ScoreWindow::drawWindow( Game & game ) const
+	void			ScoreWindow::drawWindow( Game * game ) const
 	{
-		clear();
+		//clear();
 		this->borderWindow();
 		mvwprintw(this->getWindow() , this->getX() + 2 , this->getY() + 20, "Life is here");		
 		wrefresh(this->getWindow());

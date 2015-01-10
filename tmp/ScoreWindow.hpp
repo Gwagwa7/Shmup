@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 19:05:39 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 22:10:55 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:19:26 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 
 	/* fonction membre */
 	void	drawWindow( void ) const;
-	void	drawWindow( Game & game ) const;
+	void	drawWindow( Game * game ) const;
 
 
 };

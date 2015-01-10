@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:12:43 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:21:12 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void			Game::renderDisplay( void ) {
 	IGameEntity	*tmp = (IGameEntity *)this->_playerShip;
 	this->getMapWindow()->drawWindow(tmp);
 	this->getMapWindow()->drawWindow(this->_entities, 50);
-	this->getScoreWindow()->drawWindow(this->_entities, 50);
+	this->getScoreWindow()->drawWindow(this);
 }
 
 int				Game::getInput( void ) {
