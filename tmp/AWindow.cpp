@@ -6,11 +6,10 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 16:03:06 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 16:11:56 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <curses.h>
 #include "AWindow.hpp"
 
 /*	Constructeur destructeur */
@@ -68,7 +67,7 @@
 
 
 	   	mvwprintw(this->getWindow() , 20 , 100 , "Y");
-	   	 wrefresh(this->getWindow());
+	   	wrefresh(this->getWindow());
 
 	}
 
@@ -114,4 +113,6 @@
 
 
 
-
+void		AWindow::drawWindow( void ) {
+	return ;
+}

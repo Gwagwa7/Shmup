@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 15:28:39 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 16:00:24 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ void					Enemy::attack( void ) {
 			break ;
 		}
 	}
-	this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
+//	this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
 }

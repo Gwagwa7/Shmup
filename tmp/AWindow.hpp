@@ -6,14 +6,17 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 16:03:39 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 16:11:58 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AWINDOW_HPP
 # define AWiNDOW_HPP
 
-class AWindow : {
+# include <IGameEntity.hpp>
+# include <curses.h>
+
+class AWindow : public IGameEntity {
 
 private:
 	WINDOW *	_win;
@@ -42,21 +45,21 @@ public:
 
 	void			borderWindow( void );
 
-	virtual void	AWindow::drawWindow( void ) = 0;
+	virtual void	drawWindow( void )/* = 0*/;
 
 
 	/* get and set */
-	WINDOW *	AWindow::getWindow( void ) const;
-	int			AWindow::getLength( void ) const;
-	int 		AWindow::getHeight( void ) const;	
-	int 		AWindow::getX( void ) const;	
-	int 		AWindow::getY( void ) const;		
+	WINDOW *	getWindow( void ) const;
+	int			getLength( void ) const;
+	int 		getHeight( void ) const;	
+	int 		getX( void ) const;	
+	int 		getY( void ) const;		
 
-	AWindow &	AWindow::setWindow( WINDOW * win );
-	AWindow &	AWindow::setLength( int nbr );
-	AWindow &	AWindow::setHeight( int nbr );		
-	AWindow &	AWindow::setX( int nbr );		
-	AWindow &	AWindow::setY( int nbr );			
+	AWindow &	setWindow( WINDOW * win );
+	AWindow &	setLength( int nbr );
+	AWindow &	setHeight( int nbr );		
+	AWindow &	setX( int nbr );		
+	AWindow &	setY( int nbr );			
 
 };
 

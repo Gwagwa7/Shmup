@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 14:41:15 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 16:02:58 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,12 @@ void			ASpaceShip::move( int x, int y ) {
 	this->_Y += y;
 	this->_X = (this->_X < 0) ? 0 : this->_X;
 	this->_Y = (this->_Y < 0) ? 0 : this->_Y;
+}
+
+int				ASpaceShip::getY( void ) const {
+	return this->_Y;
+}
+
+int				ASpaceShip::getX( void ) const {
+	return this->_X;
 }

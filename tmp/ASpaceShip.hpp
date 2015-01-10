@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:52:04 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 15:25:01 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 16:02:13 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class ASpaceShip : public IGameEntity {
 		void			takeDamage( int amount );
 		bool			isAlive( void ) const;
 		int				getHP( void ) const;
+		int				getX( void ) const;
+		int				getY( void ) const;
 };
 
 #endif
