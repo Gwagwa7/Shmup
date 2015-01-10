@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:56:56 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:54:57 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 00:18:14 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class Game {
 		std::string const	getPlayerName( void ) const;
 		MapWindow	const	*getMapWindow( void ) const;
 		ScoreWindow	const	*getScoreWindow( void ) const;
+		void				sleepcp( int millisecond );
 };
 
 #endif

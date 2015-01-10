@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 23:52:51 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/11 00:36:28 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 		initscr();
 		raw();
 		curs_set(0);
-		timeout(10);
+		timeout(3);
 		keypad(stdscr, true);
 	}
 

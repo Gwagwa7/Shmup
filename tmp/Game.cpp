@@ -6,13 +6,14 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 23:56:41 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 00:49:48 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Game.hpp>
 #include <curses.h>
 #include <unistd.h>
+#include <ctime>
 
 Game::Game( void ) : _playerName("playerOne"), _score(0), _playerShip(new PlayerShip()) {
 }
@@ -49,8 +50,12 @@ std::string const	Game::getPlayerName( void ) const {
 
 void			Game::doLoop( void ) {
 	int			key = 42;
+	clock_t		time_start;
+	float		tmp;
+	clock_t 	diff;
 
 	while (key != 'q') {
+		time_start = clock();
 		key = this->getInput();
 		if (key != -1) {
 			if (key == ' ') {
@@ -60,7 +65,21 @@ void			Game::doLoop( void ) {
 		}
 		this->updateEntities();
 		this->renderDisplay();
-		sleep(0.5);
+		diff = clock() - time_start;
+		tmp = ((float)diff)/CLOCKS_PER_SEC;
+		this->sleepcp( 30 - tmp);
+	}
+}
+
+void			Game::sleepcp( int millisecond )
+{
+	if (millisecond <= 0)
+	{
+		clock_t time_end;
+	    time_end = clock() + millisecond * CLOCKS_PER_SEC/1000;
+	    while (clock() < time_end)
+	    {
+	    }
 	}
 }
 
