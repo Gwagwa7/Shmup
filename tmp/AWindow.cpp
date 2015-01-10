@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 16:11:56 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 17:14:55 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,10 @@
 		this->setX(x);
 		this->setY(y);
 
-		this->setWindow(newwin(length, height , x, y));
+		this->setWindow(newwin(height,length , x, y));
 
 		this->borderWindow();
 
-
-	   	mvwprintw(this->getWindow() , 20 , 100 , "Y");
 	   	wrefresh(this->getWindow());
 
 	}
@@ -112,7 +110,3 @@
 	AWindow &	AWindow::setY( int nbr )			{ this->_y = nbr; return *this; }
 
 
-
-void		AWindow::drawWindow( void ) {
-	return ;
-}

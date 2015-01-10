@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 16:11:58 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 18:16:47 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ public:
 
 	/* Fonction membre */
 
-	void			initScreen( void );
+	static void		initScreen( void );
 
-	void			closeScreen( void );
+	static void		closeScreen( void );
 
 	void			initNewWindow(int length , int height, int x, int y);
 
 	void			borderWindow( void );
 
-	virtual void	drawWindow( void )/* = 0*/;
+	virtual void	drawWindow( IGameEntity** entities ) = 0;
 
 
 	/* get and set */

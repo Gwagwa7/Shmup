@@ -1,11 +1,13 @@
 #include <PlayerShip.hpp>
 #include <Bullet.hpp>
 #include <Enemy.hpp>
-#include <AWindow.hpp>
+
 #include <iostream>
 #include <unistd.h>
 #include <ctime>
 #include <cstdlib>
+
+#include "MapWindow.hpp"
 
 int		test(IGameEntity** entities) {
 	for (int i = 0; i < 50; i ++) {
@@ -37,7 +39,21 @@ int main(void)
 	IGameEntity **tmp;
 	tmp = (IGameEntity**)objects;
 	for (int i = 0; i < 50; i++) {
-		objects[i] = new Bullet();
+		objects[i] = new Bullet( 10, i + 5);
 	}
-	test(tmp);
+//	test(tmp);
+
+	MapWindow *Window = new MapWindow(200, 50, 3, 5);
+
+	Window->drawWindow(tmp);
+
+	sleep(10);
+
+	Window->closeScreen();
+
+	delete Window;
+
+
 }
+
+
