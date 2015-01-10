@@ -6,11 +6,12 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:23:07 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 19:08:17 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:15:14 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MapWindow.hpp"
+#include <iostream>
 
 		MapWindow::MapWindow( void ) : AWindow( )
 		{
@@ -45,10 +46,11 @@
 
 	void			MapWindow::drawWindow( IGameEntity** entities, int nb_obj ) const
 	{
+		std::string	*s;
 		for (int i = 0; i < nb_obj; i ++) {
-
-		mvwprintw(this->getWindow() , entities[i]->getX() , entities[i]->getY() , entities[i]->getC());
-	   		
+			s = new std::string(1, entities[i]->getC());
+			mvwprintw(this->getWindow() , entities[i]->getX() , entities[i]->getY() , s->c_str());
+	   		delete s;
 		}
 		wrefresh(this->getWindow());
 		return;

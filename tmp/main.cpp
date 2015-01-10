@@ -19,19 +19,17 @@ Game		*init_game(std::string const name) {
 int main(int ac, char **av)
 {
 	Game *game;
-	Bullet	*objects[50];
-	IGameEntity	**tmp;
-	tmp = (IGameEntity**)objects;
+	IGameEntity	*objects[50];
 	for (int i = 0; i < 50; i++) {
-		objects[i] = new Bullet(i * 2, i * 2);
+		objects[i] = (IGameEntity*) new Enemy();
 	}
 
 	if (ac == 2) {
 		game = init_game(av[1]);
 
 		game->initMap(200, 50, 0, 0);
-		game->getMapWindow()->drawWindow(tmp, 50);
-		sleep(5);
+		game->initScore(30, 50, 0, 201);
+		game->doLoop();
 		std::cout << "Je suis le joueur " << game->getPlayerName() << std::endl;
 		std::cout << "Il me reste " << game->getPlayerShip().getLive() << " vie." << std::endl;
 		std::cout << "Mon vaisseau a " << game->getPlayerShip().getHP() << " points de vie." << std::endl;

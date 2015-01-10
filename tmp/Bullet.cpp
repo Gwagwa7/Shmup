@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:17:35 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:04:27 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:10:02 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int			Bullet::getY( void ) const {
 	return this->_Y;
 }
 
-int			Bullet::getC( void ) const {
+int const	Bullet::getC( void ) const {
 	return this->_C;
 }

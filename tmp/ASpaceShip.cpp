@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:05:36 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:09:29 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ int				ASpaceShip::getX( void ) const {
 	return this->_X;
 }
 
-int				ASpaceShip::getC( void ) const {
+int const		ASpaceShip::getC( void ) const {
 	return this->_C;
 }

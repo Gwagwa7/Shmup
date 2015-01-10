@@ -6,12 +6,12 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 19:01:01 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:21:59 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AWINDOW_HPP
-# define AWiNDOW_HPP
+# define AWINDOW_HPP
 
 # include <IGameEntity.hpp>
 # include <curses.h>
