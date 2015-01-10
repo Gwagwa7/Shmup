@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 16:00:37 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 18:25:45 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,8 @@ void					PlayerShip::attack( void ) {
 		}
 	}
 //	this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
+}
+
+int						PlayerShip::getLive( void ) const {
+	return this->_live;
 }

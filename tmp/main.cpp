@@ -1,5 +1,6 @@
 #include <PlayerShip.hpp>
 #include <Bullet.hpp>
+#include <Game.hpp>
 #include <Enemy.hpp>
 
 #include <iostream>
@@ -7,53 +8,36 @@
 #include <ctime>
 #include <cstdlib>
 
-#include "MapWindow.hpp"
+#include <MapWindow.hpp>
 
-int		test(IGameEntity** entities) {
-	for (int i = 0; i < 50; i ++) {
-		std::cout << entities[i]->getX() << std::endl;
-	}
+Game		*init_game(std::string const name) {
+	Game *game = new Game(name);
+	MapWindow::initScreen();
+	return game;
 }
 
-int main(void)
+int main(int ac, char **av)
 {
-/*	ASpaceShip*	object = new PlayerShip(20, 3, 10, 3, 3);
-	srand(time(NULL));
-	int randd = 0;
-
-	for ( int i = 0; i < 50; i++ ) {
-		randd = rand() % 4;
-		if (randd % 4 == 0) {
-			object->move(1, 0);
-		} else if (randd % 4 == 1) {
-			object->move(-1, 0);
-		} else if (randd % 4 == 2) {
-			object->move(0, 1);
-		} else if (randd % 4 == 3) {
-			object->move(0, -1);
-		}
-		std::cout << "Object X: " << object->getX() << " Y: " << object->getY() << std::endl;
-	}*/
-
-	Bullet *objects[50];
-	IGameEntity **tmp;
+	Game *game;
+	Bullet	*objects[50];
+	IGameEntity	**tmp;
 	tmp = (IGameEntity**)objects;
 	for (int i = 0; i < 50; i++) {
-		objects[i] = new Bullet( 10, i + 5);
+		objects[i] = new Bullet(i * 2, i * 2);
 	}
-//	test(tmp);
 
-	MapWindow *Window = new MapWindow(200, 50, 3, 5);
+	if (ac == 2) {
+		game = init_game(av[1]);
 
-	Window->drawWindow(tmp);
-
-	sleep(10);
-
-	Window->closeScreen();
-
-	delete Window;
-
-
+		game->initMap(200, 50, 0, 0);
+		game->getMapWindow()->drawWindow(tmp);
+		sleep(5);
+		std::cout << "Je suis le joueur " << game->getPlayerName() << std::endl;
+		std::cout << "Il me reste " << game->getPlayerShip().getLive() << " vie." << std::endl;
+		std::cout << "Mon vaisseau a " << game->getPlayerShip().getHP() << " points de vie." << std::endl;
+		std::cout << "Il est en X: " << game->getPlayerShip().getX() << " Y: " << game->getPlayerShip().getY() << std::endl;
+		MapWindow::closeScreen();
+	} else {
+		std::cout << "Usage: ./ft_retro <playerName>" << std::endl;
+	}
 }
-
-
