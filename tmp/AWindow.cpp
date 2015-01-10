@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 20:05:46 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 21:30:08 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@
 
 	}
 
-	void		AWindow::borderWindow( void )
+	void		AWindow::borderWindow( void ) const
 	{
 		int x, y, i;
 
