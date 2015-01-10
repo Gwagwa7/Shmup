@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 15:05:24 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 16:03:06 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,6 @@
 
 	   	mvwprintw(this->getWindow() , 20 , 100 , "Y");
 	   	 wrefresh(this->getWindow());
-
-	}
-
-
-	void		AWindow::drawWindow( void )
-	{
-		return;
 
 	}
 

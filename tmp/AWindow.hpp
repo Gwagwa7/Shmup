@@ -1,124 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWindow.cpp                                        :+:      :+:    :+:   */
+/*   AWindow.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/10 15:05:24 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 16:03:39 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <curses.h>
-#include "AWindow.hpp"
+#ifndef AWINDOW_HPP
+# define AWiNDOW_HPP
 
-/*	Constructeur destructeur */
-		AWindow::AWindow( void )
-		{
+class AWindow : {
 
-			return;
-		}
+private:
+	WINDOW *	_win;
+	int			_length;
+	int 		_height; 
+	int 		_x; 
+	int 		_y;
 
-		AWindow::AWindow( AWindow const & obj )
-		{
-			*this = obj;
-			return;
-		}
+public:
+	/*	Constructeur destructeur */
+		AWindow( void );
+		AWindow( AWindow const & obj );
+		~AWindow();
 
-		AWindow::~AWindow()
-		{
+	/* operteur */
 
-			return;
-		}
+	AWindow & 	operator=( AWindow const & obj );
 
-/* operteur */
+	/* Fonction membre */
 
-		AWindow & 	AWindow::operator=( AWindow const & obj )
-		{
-			this->setLength( obj.getLength() );
-			this->setHeight( obj.getHeight() );
-			this->setWindow( obj.getWindow() );
-			return *this;
-		}
+	void			initScreen( void );
 
-/* Fonction membre */
+	void			closeScreen( void );
 
-	void		AWindow::initScreen( void )
-	{
-		initscr();
-		raw();
-	}
+	void			initNewWindow(int length , int height, int x, int y);
 
-	void		AWindow::closeScreen( void )
-	{
-		endwin();
-	}
+	void			borderWindow( void );
 
-	void		AWindow::initNewWindow(int length , int height, int x, int y)
-	{
-		this->setLength(length);
-		this->setHeight(height);
-		this->setX(x);
-		this->setY(y);
-
-		this->setWindow(newwin(length, height , x, y));
-
-		this->borderWindow();
+	virtual void	AWindow::drawWindow( void ) = 0;
 
 
-	   	mvwprintw(this->getWindow() , 20 , 100 , "Y");
-	   	 wrefresh(this->getWindow());
+	/* get and set */
+	WINDOW *	AWindow::getWindow( void ) const;
+	int			AWindow::getLength( void ) const;
+	int 		AWindow::getHeight( void ) const;	
+	int 		AWindow::getX( void ) const;	
+	int 		AWindow::getY( void ) const;		
 
-	}
+	AWindow &	AWindow::setWindow( WINDOW * win );
+	AWindow &	AWindow::setLength( int nbr );
+	AWindow &	AWindow::setHeight( int nbr );		
+	AWindow &	AWindow::setX( int nbr );		
+	AWindow &	AWindow::setY( int nbr );			
 
+};
 
-	void		AWindow::drawWindow( void )
-	{
-		return;
-
-	}
-
-	void		AWindow::borderWindow( void )
-	{
-		int x, y, i;
-
-		getmaxyx(this->getWindow(), y, x);
-		// 4 corners
-		mvwprintw(this->getWindow(), 0, 0, "+");
-		mvwprintw(this->getWindow(), y - 1, 0, "+");
-		mvwprintw(this->getWindow(), 0, x - 1, "+");
-		mvwprintw(this->getWindow(), y - 1, x - 1, "+");
-		// sides
-		for (i = 1; i < (y - 1); i++) {
-			mvwprintw(this->getWindow(), i, 0, "|");
-			mvwprintw(this->getWindow(), i, x - 1, "|");
-		}
-		// top and bottom
-		for (i = 1; i < (x - 1); i++) {
-			mvwprintw(this->getWindow(), 0, i, "-");
-			mvwprintw(this->getWindow(), y - 1, i, "-");
-		}
-
-		return;
-	}
-
-
-
-/* Get and set */
-
-	WINDOW *	AWindow::getWindow( void ) const 	{ return this->_win; }
-	int			AWindow::getLength( void ) const 	{ return this->_length; }
-	int 		AWindow::getHeight( void ) const 	{ return this->_height; }
-	int 		AWindow::getX( void ) const 		{ return this->_x; }
-	int 		AWindow::getY( void ) const 		{ return this->_y; }
-
-	AWindow &	AWindow::setWindow( WINDOW * win )	{ this->_win = win; return *this; }
-	AWindow &	AWindow::setLength( int nbr )		{ this->_length = nbr; return *this; }
-	AWindow &	AWindow::setHeight( int nbr )		{ this->_height = nbr; return *this; }
-	AWindow &	AWindow::setX( int nbr )			{ this->_x = nbr; return *this; }
-	AWindow &	AWindow::setY( int nbr )			{ this->_y = nbr; return *this; }
-
-
-
+#endif
 
