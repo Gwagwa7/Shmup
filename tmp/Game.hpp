@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:56:56 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:12:59 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:54:57 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Game {
 		std::string const	_playerName;
 		MapWindow const		*_map;
 		ScoreWindow const	*_score;
-		IGameEntity			*_entities[21];
+		IGameEntity			*_entities[50];
 		PlayerShip			*_playerShip;
 		int					_scorePoint;
 

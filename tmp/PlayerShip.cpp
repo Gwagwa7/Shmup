@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:03:46 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:44:12 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ PlayerShip::~PlayerShip( void ) {
 }
 
 void					PlayerShip::attack( void ) {
-	std::cout << "Bullet !" << std::endl;
 	int		ind = -1;
 
 	for (int i = 0; i < 50; i++) {
@@ -43,7 +42,8 @@ void					PlayerShip::attack( void ) {
 			break ;
 		}
 	}
-//	this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
+	std::cout << ind << std::endl;
+	this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
 }
 
 int						PlayerShip::getLive( void ) const {
@@ -51,10 +51,11 @@ int						PlayerShip::getLive( void ) const {
 }
 
 void					PlayerShip::update( void ) {
-	std::cout << "Player Update" << std::endl;
-	for (int i = 0; i < 50; i++) {
-		if (this->_bullets[i]) {
-			this->_bullets[i]->update();
+	if (this->_bullets) {
+		for (int i = 0; i < 50; i++) {
+			if (this->_bullets[i] != NULL) {
+				this->_bullets[i]->update();
+			}
 		}
 	}
 }

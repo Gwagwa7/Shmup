@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:21:12 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:55:05 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,19 @@ void			Game::doLoop( void ) {
 	while (key != 'q') {
 		key = this->getInput();
 		if (key != -1) {
+			if (key == ' ') {
+				this->getPlayerShip()->attack();
+			}
 			this->getPlayerShip()->move(key);
 		}
-//		this->updateEntities();
-		this->renderDisplay();
-		sleep(0.5);
+		this->updateEntities();
+//		this->renderDisplay();
+		sleep(1);
 	}
 }
 
 void			Game::updateEntities( void ) {
+	this->getPlayerShip()->update();
 	for (int i = 0; i < 50; i++) {
 		if (this->_entities[i]) {
 			this->_entities[i]->update();

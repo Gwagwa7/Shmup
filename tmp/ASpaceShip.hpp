@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:52:04 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:08:59 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:59:23 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ASPACE_SHIP_HPP
 
 # include <IGameEntity.hpp>
+# include <Bullet.hpp>
 
 class ASpaceShip : public IGameEntity {
 	protected	:
@@ -25,7 +26,7 @@ class ASpaceShip : public IGameEntity {
 		int			_Y;
 		char		_C;
 		bool		_alive;
-		IGameEntity	*_bullets[50];
+		Bullet		*_bullets[50];
 
 	public		:
 		ASpaceShip( void );
@@ -43,6 +44,9 @@ class ASpaceShip : public IGameEntity {
 		int				getY( void ) const;
 		int const		getC( void ) const;
 		virtual void	update( void ) = 0;
+		void			initBullets( void );
+		Bullet			**getBullets( void );
+		Bullet			*getBullet( int ind );
 };
 
 #endif

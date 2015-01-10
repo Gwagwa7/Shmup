@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 21:58:47 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:59:25 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 #include <ncurses.h>
 
 ASpaceShip::ASpaceShip( void ) {
+	this->initBullets();
 }
 
 ASpaceShip::ASpaceShip( ASpaceShip const & src ) {
+	this->initBullets();
 	*this = src;
 }
 
 ASpaceShip::ASpaceShip( int hp, int armor, int damage, int X, int Y, char C) :
 	_HP(hp), _armor(armor), _maxHP(hp), _X(X), _Y(Y), _alive(true), _damage(damage), _C(C)
 {
+	this->initBullets();
 }
 
 ASpaceShip::~ASpaceShip( void ) {
@@ -71,6 +74,12 @@ void			ASpaceShip::move( int key ) {
 	}
 }
 
+void			ASpaceShip::initBullets( void ) {
+	for (int i = 0; i < 50; i++) {
+		this->_bullets[i] = NULL;
+	}
+}
+
 void			ASpaceShip::move( int x, int y ) {
 	this->_X += x;
 	this->_Y += y;
@@ -88,4 +97,12 @@ int				ASpaceShip::getX( void ) const {
 
 int const		ASpaceShip::getC( void ) const {
 	return this->_C;
+}
+
+Bullet			**ASpaceShip::getBullets( void ) {
+	return this->_bullets;
+}
+
+Bullet			*ASpaceShip::getBullet( int ind ) {
+	return this->_bullets[ind];
 }

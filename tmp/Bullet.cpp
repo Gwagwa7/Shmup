@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:17:35 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:08:01 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:45:35 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ int const	Bullet::getC( void ) const {
 }
 
 void		Bullet::update( void ) {
+	std::cout << "Update Bullet" << std::endl;
 	this->move();
-	std::cout << "Bullet Update" << std::endl;
 }
