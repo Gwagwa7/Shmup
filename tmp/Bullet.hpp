@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:43:09 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 17:01:58 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:03:22 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Bullet : public IGameEntity {
 	private	:
 		int		_X;
 		int		_Y;
+		int		_C;
 
 	public	:
 		Bullet( void );
@@ -29,6 +30,7 @@ class Bullet : public IGameEntity {
 		void	move( void );
 		int		getX( void ) const;
 		int		getY( void ) const;
+		int		getC( void ) const;
 };
 
 #endif

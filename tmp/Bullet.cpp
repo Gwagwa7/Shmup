@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:17:35 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 17:01:32 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:04:27 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Bullet::Bullet( void ) {
 }
 
-Bullet::Bullet( int x, int y ) : _Y(y), _X(x) {
+Bullet::Bullet( int x, int y ) : _Y(y), _X(x), _C('*') {
 }
 
 Bullet::Bullet( Bullet const & src ) {
@@ -40,4 +40,8 @@ int			Bullet::getX( void ) const {
 
 int			Bullet::getY( void ) const {
 	return this->_Y;
+}
+
+int			Bullet::getC( void ) const {
+	return this->_C;
 }

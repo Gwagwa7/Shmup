@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 16:02:58 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 19:05:36 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ ASpaceShip::ASpaceShip( ASpaceShip const & src ) {
 	*this = src;
 }
 
-ASpaceShip::ASpaceShip( int hp, int armor, int damage, int X, int Y ) :
-	_HP(hp), _armor(armor), _maxHP(hp), _X(X), _Y(Y), _alive(true), _damage(damage)
+ASpaceShip::ASpaceShip( int hp, int armor, int damage, int X, int Y, char C) :
+	_HP(hp), _armor(armor), _maxHP(hp), _X(X), _Y(Y), _alive(true), _damage(damage), _C(C)
 {
 }
 
@@ -66,4 +66,8 @@ int				ASpaceShip::getY( void ) const {
 
 int				ASpaceShip::getX( void ) const {
 	return this->_X;
+}
+
+int				ASpaceShip::getC( void ) const {
+	return this->_C;
 }
