@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:43:09 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:10:18 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 21:55:39 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Bullet : public IGameEntity {
 		int			getX( void ) const;
 		int			getY( void ) const;
 		int	const	getC( void ) const;
+		void		update( void );
 };
 
 #endif

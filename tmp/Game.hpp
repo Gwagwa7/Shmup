@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:56:56 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:49:33 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:04:28 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ class Game {
 		void				destroyScore( void );
 		std::string const	getPlayerName( void ) const;
 		MapWindow	const	*getMapWindow( void ) const;
+		ScoreWindow	const	*getScoreWindow( void ) const;
 };
 
 #endif

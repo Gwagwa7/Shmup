@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:06:21 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:03:46 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,13 @@ void					PlayerShip::attack( void ) {
 
 int						PlayerShip::getLive( void ) const {
 	return this->_live;
+}
+
+void					PlayerShip::update( void ) {
+	std::cout << "Player Update" << std::endl;
+	for (int i = 0; i < 50; i++) {
+		if (this->_bullets[i]) {
+			this->_bullets[i]->update();
+		}
+	}
 }

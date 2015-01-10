@@ -6,11 +6,12 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:17:35 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 19:10:02 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:08:01 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Bullet.hpp>
+#include <iostream>
 
 Bullet::Bullet( void ) {
 }
@@ -44,4 +45,9 @@ int			Bullet::getY( void ) const {
 
 int const	Bullet::getC( void ) const {
 	return this->_C;
+}
+
+void		Bullet::update( void ) {
+	this->move();
+	std::cout << "Bullet Update" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 20:09:22 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:09:23 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,25 @@ void			Game::doLoop( void ) {
 		if (key != -1) {
 			this->getPlayerShip()->move(key);
 		}
-		this->updateEntities();
+//		this->updateEntities();
 		this->renderDisplay();
 		sleep(0.5);
 	}
 }
 
 void			Game::updateEntities( void ) {
+	for (int i = 0; i < 50; i++) {
+		if (this->_entities[i]) {
+			this->_entities[i]->update();
+		}
+	}
 }
 
 void			Game::renderDisplay( void ) {
-	IGameEntity	*tmp;
-	tmp = (IGameEntity *)this->_playerShip;
+	IGameEntity	*tmp = (IGameEntity *)this->_playerShip;
 	this->getMapWindow()->drawWindow(tmp);
+	this->getMapWindow()->drawWindow(this->_entities, 50);
+	this->getScoreWindow()->drawWindow(this->_entities, 50);
 }
 
 int				Game::getInput( void ) {
@@ -85,4 +91,8 @@ void			Game::initScore( int width, int height, int x, int y ) {
 
 MapWindow const *		Game::getMapWindow( void ) const {
 	return this->_map;
+}
+
+ScoreWindow const *		Game::getScoreWindow( void ) const {
+	return this->_score;
 }
