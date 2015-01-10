@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 23:47:42 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/10 23:53:12 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void			Game::doLoop( void ) {
 		}
 		this->updateEntities();
 		this->renderDisplay();
-		usleep(100000000);
+		sleep(0.5);
 	}
 }
 
