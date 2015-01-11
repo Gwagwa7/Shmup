@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 05:39:20 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:08:40 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ PlayerShip::~PlayerShip( void ) {
 
 void					PlayerShip::attack( void ) {
 	int		ind = -1;
-	time_t	timer = time(NULL);
 
 	for (int i = 0; i < NB_BULLET; i++) {
 		if (this->_bullets[i] == NULL) {

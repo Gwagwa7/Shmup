@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:17:35 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 04:35:55 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:31:01 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,23 @@ Bullet&		Bullet::operator=( Bullet const & rhs ) {
 }
 
 int			Bullet::move( void ) {
-	this->_Y += 1;
-	if (this->_Y >= MAP_WIDTH) {
-		return 0;
+	return this->move(true);
+}
+
+int			Bullet::move( bool forward ) {
+	if (forward) {
+		this->_Y += 1;
+		if (this->_Y >= MAP_WIDTH) {
+			return 0;
+		}
+		return 1;
+	} else {
+		this->_Y -= 1;
+		if (this->_Y < 2) {
+			return 0;
+		}
+		return 1;
 	}
-	return 1;
 }
 
 int			Bullet::getX( void ) const {
@@ -69,4 +81,8 @@ int			Bullet::getType( void ) const {
 
 int			Bullet::update( void ) {
 	return this->move();
+}
+
+int			Bullet::update( bool forward ) {
+	return this->move(forward);
 }

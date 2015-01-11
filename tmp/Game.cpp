@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 06:26:03 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:39:47 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,12 @@ std::string const	Game::getPlayerName( void ) const {
 void			Game::generateEnemy( void ) {
 	for (int i = 0; i < NB_ENEMY; i++) {
 		if (rand() % 7 != 1) {
-			if (!this->_entities[i]) {
-				this->_entities[i] = new Enemy(100, 10, 10, (i + 1) * 3, MAP_WIDTH - 2);
+		if (!this->_entities[i]) {
+				this->_entities[i] = new Enemy(100, 10, 10, (rand() % 15) * 3, MAP_WIDTH - 2);
 			}
 		}
 	}
+//	this->_entities[0] = new Enemy(10, 10, 10, 3, 25);
 }
 
 void			Game::doLoop( void ) {
@@ -81,8 +82,7 @@ void			Game::doLoop( void ) {
 				this->getPlayerShip()->move(key);
 			}
 		}
-		this->updateEntities();
-		if (!this->getPlayerShip()) {
+		if (this->updateEntities() == -1) {
 			return ;
 		}
 		this->renderDisplay();
@@ -109,36 +109,41 @@ IGameEntity			*Game::checkCollide( ASpaceShip * ship, IGameEntity * entity ) {
 	tmp = (Enemy *)entity;
 	int ret = tmp->collide(ship);
 	switch (ret) {
+		case 1	:
+			tmp->setAlive(false);
+			return entity;
 		case 2	:
-			delete ship;
-			ship = NULL;
+			tmp->setAlive(false);
 			return entity;
 		case 3	:
-			delete ship;
-			delete entity;
-			ship = NULL;
-			return NULL;
+			ship->setAlive(false);
+			tmp->setAlive(false);
+			return entity;
 	}
 	ret = ship->collide(tmp);
 	switch (ret) {
+		case 1	:
+			ship->setAlive(false);
+			return entity;
 		case 2	:
-			delete entity;
-			entity = NULL;
-			return NULL;
+			tmp->setAlive(false);
+			return entity;
 		case 3	:
-			delete ship;
-			delete entity;
-			ship = NULL;
-			return NULL;
+			ship->setAlive(false);
+			tmp->setAlive(false);
+			return entity;
 	}
 	return entity;
 }
 
 IGameEntity			*Game::checkCollide( IGameEntity * entity) {
 	IGameEntity**		entities = this->_entities;
+	Enemy				*enemy, *tmp;
+	tmp = (Enemy *) entity;
 	int				ret = -1;
 	for (int i = 0; i < NB_ENTITY; i++) {
 		if (entities[i]) {
+			enemy = (Enemy *) entities[i];
 			switch (entities[i]->getType()) {
 				case 0	:
 					ret = entity->collide((Enemy *)entities[i]);
@@ -153,17 +158,15 @@ IGameEntity			*Game::checkCollide( IGameEntity * entity) {
 			if (entity != entities[i]) {
 				switch (ret) {
 					case 1	:
-						delete entity;
-						return NULL;
+						enemy->setAlive(false);
+						return entity;
 					case 2	:
-						delete entities[i];
-						entities[i] = NULL;
+						enemy->setAlive(false);
 						return entity;
 					case 3	:
-						delete entities[i];
-						delete entity;
-						entities[i] = NULL;
-						return NULL;
+						tmp->setAlive(false);
+						enemy->setAlive(false);
+						return entity;
 				}
 			}
 		}
@@ -171,7 +174,7 @@ IGameEntity			*Game::checkCollide( IGameEntity * entity) {
 	return entity;
 }
 
-void			Game::updateEntities( void ) {
+int				Game::updateEntities( void ) {
 	int			score;
 	Enemy*		enemy;
 	this->getPlayerShip()->update();
@@ -182,17 +185,18 @@ void			Game::updateEntities( void ) {
 			if (this->_entities[i]) {
 				enemy = (Enemy *) this->_entities[i];
 				if (this->_entities[i]->update() == -1) {
-					delete this->_entities[i];
 					this->_entities[i] = NULL;
 				} else {
 					score = enemy->getScore();
 					this->_entities[i] = this->checkCollide(this->_playerShip, this->_entities[i]);
-					if (!this->_playerShip) {
-						break;
+					if (!this->_playerShip->isAlive()) {
+						return -1;
 					}
-					if (this->_entities[i]) {
+					if (this->_entities[i] && enemy->isAlive()) {
 						this->_entities[i] = this->checkCollide(this->_entities[i]);
 					} else {
+						delete this->_entities[i];
+						this->_entities[i] = NULL;
 						this->_score += score;
 					}
 				}
@@ -205,15 +209,20 @@ void			Game::renderDisplay( void ) {
 	IGameEntity	*spaceShip = (IGameEntity *)this->_playerShip;
 	Bullet		**tmp = this->_playerShip->getBullet();
 	IGameEntity **bullets = (IGameEntity **)tmp;
+	Enemy*		enemies;
 
 	this->getMapWindow()->clear();
-	this->getScoreWindow()->clear();
 	this->getMapWindow()->drawWindow(spaceShip);
 	this->getMapWindow()->drawWindow(this->_entities, NB_ENTITY);
 	this->getMapWindow()->drawWindow(bullets, NB_BULLET);
-	this->getScoreWindow()->drawWindow(this);
+	for (int i = 0; i < NB_ENEMY; i++) {
+		if (this->_entities[i] != NULL) {
+			enemies = (Enemy *)this->_entities[i];
+			bullets = (IGameEntity **)enemies->getBullet();
+			this->getMapWindow()->drawWindow(bullets, NB_BULLET);
+		}
+	}
 	this->getMapWindow()->refresh();
-	this->getScoreWindow()->refresh();
 }
 
 int				Game::getInput( void ) {
@@ -225,16 +234,8 @@ void			Game::initMap( int width, int height, int x, int y ) {
 	this->_map = new MapWindow(width, height, x, y);
 }
 
-void			Game::initScore( int width, int height, int x, int y ) {
-	this->_score = new ScoreWindow(width, height, x, y);
-}
-
 MapWindow const *		Game::getMapWindow( void ) const {
 	return this->_map;
-}
-
-ScoreWindow const *		Game::getScoreWindow( void ) const {
-	return this->_score;
 }
 
 int						Game::getScore( void ) {

@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:05:08 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 05:26:43 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:28:41 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define HEIGHT			50
 # define NB_BULLET		50
 # define NB_ENTITY		50
-# define NB_ENEMY		15
+# define NB_ENEMY		7
 
 class ASpaceShip;
 class Bullet;

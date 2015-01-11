@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:56:56 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 05:31:23 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:40:05 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <IGameEntity.hpp>
 # include <MapWindow.hpp>
-# include <ScoreWindow.hpp>
 # include <PlayerShip.hpp>
 # include <iostream>
 
@@ -23,7 +22,6 @@ class Game {
 	private	:
 		std::string const	_playerName;
 		MapWindow const		*_map;
-		ScoreWindow const	*_score;
 		IGameEntity			*_entities[50];
 		PlayerShip			*_playerShip;
 		int					_scorePoint;
@@ -35,7 +33,7 @@ class Game {
 		~Game( void );
 		Game&				operator=( Game const & src );
 		int					getInput( void );
-		void				updateEntities( void );
+		int					updateEntities( void );
 		void				renderDisplay( void );
 		void				doLoop( void );
 		PlayerShip			*getPlayerShip( void );
@@ -45,7 +43,6 @@ class Game {
 		void				destroyScore( void );
 		std::string const	getPlayerName( void ) const;
 		MapWindow	const	*getMapWindow( void ) const;
-		ScoreWindow	const	*getScoreWindow( void ) const;
 		void				sleepcp( int millisecond );
 		IGameEntity			*checkCollide( IGameEntity * entity );
 		IGameEntity			*checkCollide( ASpaceShip * ship, IGameEntity * entity );

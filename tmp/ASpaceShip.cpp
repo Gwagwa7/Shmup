@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 05:57:46 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 07:52:32 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,15 +106,15 @@ void			ASpaceShip::move( int x, int y ) {
 
 int				ASpaceShip::move( void ) {
 	int			x = 0, y = -1;
-/*	if (rand() % 50 == 0) {
+	if (rand() % 50 == 0) {
 		if (rand() % 2) {
 			x = 1;
 		} else {
 			x = -1;
 		}
-	}*/
+	}
 	this->move(x, y);
-	if (this->_Y <= 2) {
+	if(this->_Y <= 2) {
 		return -1;
 	}
 	return 1;
