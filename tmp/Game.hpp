@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:56:56 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 00:18:14 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/11 05:31:23 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ class Game {
 		MapWindow	const	*getMapWindow( void ) const;
 		ScoreWindow	const	*getScoreWindow( void ) const;
 		void				sleepcp( int millisecond );
+		IGameEntity			*checkCollide( IGameEntity * entity );
+		IGameEntity			*checkCollide( ASpaceShip * ship, IGameEntity * entity );
+		void				generateEnemy( void );
+		int					getScore( void );
 };
 
 #endif

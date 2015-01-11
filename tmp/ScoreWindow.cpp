@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 19:11:18 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/11 04:52:59 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/11 06:26:22 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@
 		this->borderWindow();
 
 		
-		mvwprintw(this->getWindow() , 1 , 1, "Player : ", game->getPlayerName().c_str());
-		mvwprintw(this->getWindow() , 5 , 1, "Score : ", game->getScore());
+//		mvwprintw(this->getWindow() , 1 , 1, "Player : ");
+//		mvwprintw(this->getWindow() , 5 , 1, "Score : ");
 //		mvwprintw(this->getWindow() , 10 , 1, "Life :");
 		//mvwprintw(this->getWindow() , 15 , 1, "Nb Life :");
 		
 
-		mvwprintw(this->getWindow(), 0, 0, this->_str.c_str());
+//		mvwprintw(this->getWindow(), 0, 0, this->_str.c_str());
 		return;
 	}
 	

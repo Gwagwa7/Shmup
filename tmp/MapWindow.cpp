@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:23:07 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/11 05:14:29 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/11 06:13:48 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@
 	}
 
 	void			MapWindow::drawWindow( IGameEntity* entity ) const {
-		static int fontX = 0;
+	/*	static int fontX = 0;
 		static int fontY = 0;
 
 
@@ -79,13 +79,13 @@
 		{
 			fontX = this->getLength();
 		}
-		fontY = 0;
+		fontY = 0;*/
 
 
 
 		if (entity) 
 		{
-			this->font(fontX, fontY );
+	//		this->font(fontX, fontY );
 			this->borderWindow();
 			std::string *s = new std::string(1, entity->getC());
 			mvwprintw(this->getWindow() , entity->getX() , entity->getY() , s->c_str());

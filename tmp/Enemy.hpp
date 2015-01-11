@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:36:05 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 01:36:42 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 05:33:52 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Enemy : public ASpaceShip {
 		Enemy&		operator=( Enemy const & rhs );
 		void		attack( void );
 		int			update( void );
+		int			getScore( void );
 };
 
 #endif

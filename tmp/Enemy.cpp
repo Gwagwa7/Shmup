@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 01:37:19 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 06:03:00 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <Bullet.hpp>
 #include <iostream>
 
-Enemy::Enemy( void ) : ASpaceShip(100,  60, 50, 10, 10, 'E') {
+Enemy::Enemy( void ) : ASpaceShip(100,  60, 50, 10, 10, 'E', 0) {
 	this->_score = 10;
 	this->initBullets();
 }
 
-Enemy::Enemy( int hp, int armor, int damage, int X, int Y ) : ASpaceShip(hp,  armor, damage, X, Y, 'E') {
+Enemy::Enemy( int hp, int armor, int damage, int X, int Y ) : ASpaceShip(hp,  armor, damage, X, Y, 'E', 0) {
 	this->_score = 10;
 	this->initBullets();
 }
@@ -47,19 +47,28 @@ void					Enemy::attack( void ) {
 		}
 	}
 	if (ind != -1) {
-		this->_bullets[ind] = new Bullet(this->_X + 1, this->_Y);
+		this->_bullets[ind] = new Bullet(this->_X + 1, this->_Y, this->_damage);
 	}
 }
 
 int						Enemy::update( void ) {
-	if (this->_bullets) {
-		for (int i = 0; i < NB_BULLET; i++) {
-			if (this->_bullets[i] != NULL) {
-				if (this->_bullets[i]->update() == 0) {
-					delete this->_bullets[i];
-					this->_bullets[i] = NULL;
+	if (this->move() != -1) {
+		if (this->_bullets) {
+			for (int i = 0; i < NB_BULLET; i++) {
+				if (this->_bullets[i] != NULL) {
+					if (this->_bullets[i]->update() == 0) {
+						delete this->_bullets[i];
+						this->_bullets[i] = NULL;
+					}
 				}
 			}
 		}
+		return 0;
+	} else {
+		return -1;
 	}
+}
+
+int						Enemy::getScore( void ) {
+	return this->_score;
 }

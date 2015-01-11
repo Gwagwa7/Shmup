@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 01:52:33 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 05:39:20 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include <iostream>
 #include <ctime>
 
-PlayerShip::PlayerShip( void ) : ASpaceShip(100,  60, 50, 10, 10, 'P') {
+PlayerShip::PlayerShip( void ) : ASpaceShip(100,  60, 50, 3, 3, 'P', 2) {
 	this->_live = 3;
 }
 
-PlayerShip::PlayerShip( int hp, int armor, int damage, int X, int Y ) : ASpaceShip(hp,  armor, damage, X, Y, 'P') {
+PlayerShip::PlayerShip( int hp, int armor, int damage, int X, int Y ) : ASpaceShip(hp,  armor, damage, X, Y, 'P', 2) {
 	this->_live = 3;
 }
 
@@ -45,7 +45,7 @@ void					PlayerShip::attack( void ) {
 		}
 	}
 	if (ind != -1) {
-		this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
+		this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1, this->_damage);
 	}
 }
 

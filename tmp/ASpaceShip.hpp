@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:52:04 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 01:52:53 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 04:33:29 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <IGameEntity.hpp>
 # include <Bullet.hpp>
 # include <ctime>
+# include <iostream>
 
 class ASpaceShip : public IGameEntity {
 	protected	:
@@ -27,18 +28,21 @@ class ASpaceShip : public IGameEntity {
 		int			_Y;
 		char		_C;
 		bool		_alive;
+		bool		_colided;
 		time_t		_lastMove;
 		time_t		_lastAttack;
+		int			_type;
 		Bullet		*_bullets[50];
 
 	public		:
 		ASpaceShip( void );
 		ASpaceShip( ASpaceShip const & src );
-		ASpaceShip( int hp, int armor, int damage, int X, int Y, char C);
+		ASpaceShip( int hp, int armor, int damage, int X, int Y, char C, int type);
 		~ASpaceShip( void );
 		ASpaceShip&		operator=( ASpaceShip const & rhs );
 		void			move( int x, int y);
 		void			move( int key );
+		int				move( void );
 		virtual void	attack( void ) = 0;
 		void			takeDamage( int amount );
 		bool			isAlive( void ) const;
@@ -46,9 +50,13 @@ class ASpaceShip : public IGameEntity {
 		int				getX( void ) const;
 		int				getY( void ) const;
 		int const		getC( void ) const;
+		int 			getType( void ) const;
 		virtual int		update( void ) = 0;
 		void			initBullets( void );
 		Bullet			**getBullet( void );
+		int				collide( ASpaceShip * ship );
+		int				collide( Bullet * bullet );
+		void			setAlive( bool alive );
 };
 
 #endif
