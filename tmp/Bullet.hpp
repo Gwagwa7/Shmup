@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bullet.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:43:09 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 08:45:21 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:58:40 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ class Bullet : public IGameEntity {
 		int			move( bool forward );
 		int			getX( void ) const;
 		int			getY( void ) const;
-		int			getC( void ) const;
+		int 		getC( void ) const;
+		int 		getDamage( void ) const;
 		int			getType( void ) const;
 		int			update( void );
 		int			update( bool forward );

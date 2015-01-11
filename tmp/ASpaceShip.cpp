@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ASpaceShip.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 08:44:29 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:59:25 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ASpaceShip::ASpaceShip( ASpaceShip const & src ) {
 }
 
 ASpaceShip::ASpaceShip( int hp, int armor, int damage, int X, int Y, char C, int type) :
-	_HP(hp), _armor(armor), _maxHP(hp), _X(X), _Y(Y), _alive(true), _damage(damage), _C(C), _colided(false), _type(type)
+	_HP(hp), _maxHP(hp), _armor(armor), _damage(damage), _X(X), _Y(Y), _C(C), _alive(true), _colided(false), _type(type)
 {
 	this->initBullets();
 }
@@ -128,7 +128,7 @@ int				ASpaceShip::getX( void ) const {
 	return this->_X;
 }
 
-int const		ASpaceShip::getC( void ) const {
+int 		ASpaceShip::getC( void ) const {
 	return this->_C;
 }
 

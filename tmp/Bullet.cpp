@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bullet.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:17:35 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 08:31:01 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:55:54 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Bullet::Bullet( void ) {
 }
 
-Bullet::Bullet( int x, int y, int damage ) : _Y(y), _X(x), _C('*'), _damage(damage), _type(1) {
+Bullet::Bullet( int x, int y, int damage ) : _X(x), _Y(y), _C('*'), _damage(damage), _type(1) {
 }
 
 Bullet::Bullet( Bullet const & src ) : _type(2) {
@@ -30,6 +30,8 @@ Bullet::~Bullet( void ) {
 Bullet&		Bullet::operator=( Bullet const & rhs ) {
 	this->_X = rhs._X;
 	this->_Y = rhs._Y;
+
+	return *this;
 }
 
 int			Bullet::move( void ) {
@@ -60,7 +62,11 @@ int			Bullet::getY( void ) const {
 	return this->_Y;
 }
 
-int const	Bullet::getC( void ) const {
+int			Bullet::getDomage( void ) const {
+	return this->_domage;
+}
+
+int 		Bullet::getC( void ) const {
 	return this->_C;
 }
 
