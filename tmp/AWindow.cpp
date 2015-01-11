@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:51:38 by apantiez          #+#    #+#             */
-/*   Updated: 2015/01/11 00:36:28 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/11 02:21:19 by apantiez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,9 @@
 	{
 		int x, y, i;
 
-		getmaxyx(this->getWindow(), y, x);
+		y = this->getHeight();
+		x = this->getLength();
+	//	getmaxyx(this->getWindow(), y, x);
 		// 4 corners
 		mvwprintw(this->getWindow(), 0, 0, "+");
 		mvwprintw(this->getWindow(), y - 1, 0, "+");
