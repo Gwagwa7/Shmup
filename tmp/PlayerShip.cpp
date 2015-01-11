@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 08:08:40 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:47:43 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ PlayerShip::PlayerShip( PlayerShip const & src ) {
 
 PlayerShip&					PlayerShip::operator=( PlayerShip const & rhs ) {
 	this->_live = rhs._live;
+	return *this;
 }
 
 PlayerShip::~PlayerShip( void ) {
@@ -63,4 +64,5 @@ int						PlayerShip::update( void ) {
 			}
 		}
 	}
+	return 1;
 }

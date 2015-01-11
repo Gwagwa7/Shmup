@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:52:04 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 06:44:23 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:44:46 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class ASpaceShip : public IGameEntity {
 		int				getHP( void ) const;
 		int				getX( void ) const;
 		int				getY( void ) const;
-		int const		getC( void ) const;
+		int 			getC( void ) const;
 		int 			getType( void ) const;
 		virtual int		update( void ) = 0;
 		void			initBullets( void );

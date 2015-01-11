@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:36:05 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 01:36:55 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:47:21 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PlayerShip : public ASpaceShip {
 		PlayerShip( void );
 		PlayerShip( PlayerShip const & src );
 		PlayerShip( int hp, int armor, int damage, int X, int Y );
-		~PlayerShip( void );
+		virtual ~PlayerShip( void );
 		PlayerShip&		operator=( PlayerShip const & rhs );
 		void		attack( void );
 		int			getLive( void ) const;

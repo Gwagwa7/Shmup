@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 08:39:47 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:52:09 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <ctime>
 #include <cstdlib>
 
-Game::Game( void ) : _playerName("playerOne"), _score(0), _playerShip(new PlayerShip()) {
+Game::Game( void ) : _playerName("playerOne"), _playerShip(new PlayerShip()), _scorePoint(0) {
 }
 
 Game::Game( Game const & src ) {
@@ -26,8 +26,8 @@ Game::Game( Game const & src ) {
 
 Game::Game( std::string const playerName ) :
 	_playerName(playerName),
-	_score(0),
-	_playerShip(new PlayerShip())
+	_playerShip(new PlayerShip()),
+	_scorePoint(0)
 {
 	for (int i = 0; i < NB_ENEMY; i++) {
 		this->_entities[i] = NULL;
@@ -38,7 +38,7 @@ Game::~Game( void ) {
 }
 
 Game&			Game::operator=( Game const & rhs ) {
-	this->_score = rhs._score;
+	this->_scorePoint = rhs._scorePoint;
 	for (int i = 0; i < NB_ENTITY; i++) {
 		this->_entities[i] = rhs._entities[i];
 	}
@@ -197,12 +197,13 @@ int				Game::updateEntities( void ) {
 					} else {
 						delete this->_entities[i];
 						this->_entities[i] = NULL;
-						this->_score += score;
+						this->_scorePoint += score;
 					}
 				}
 			}
 		}
 	}
+	return 1;
 }
 
 void			Game::renderDisplay( void ) {

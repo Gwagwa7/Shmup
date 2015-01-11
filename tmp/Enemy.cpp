@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 08:35:48 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 08:55:37 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ Enemy::~Enemy( void ) {
 }
 
 Enemy&					Enemy::operator=( Enemy const & rhs ) {
-	this->_score = 10;
+	this->_score = rhs._score;
+	return *this;
 }
 
 void					Enemy::attack( void ) {
