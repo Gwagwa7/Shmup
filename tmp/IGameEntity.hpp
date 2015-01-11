@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:05:08 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 08:59:02 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/11 09:03:16 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class IGameEntity {
 		virtual int				update( void ) = 0;
 		virtual int				collide( Bullet * bullet ) = 0;
 		virtual int				collide( ASpaceShip * ship ) = 0;
+		virtual					~IGameEntity( void );
 };
 
 #endif

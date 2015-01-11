@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Boss.hpp                                           :+:      :+:    :+:   */
+/*   IGameEntity.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/10 12:46:22 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 12:54:03 by mcassagn         ###   ########.fr       */
+/*   Created: 2015/01/11 09:04:01 by mcassagn          #+#    #+#             */
+/*   Updated: 2015/01/11 09:06:09 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BOSS_HPP
-# define BOSS_HPP
+# include <IGameEntity.hpp>
 
-# include <Enemy.hpp>
-
-class Boss : public Enemy {
-};
-
-#endif
+IGameEntity::~IGameEntity( void ) {
+}

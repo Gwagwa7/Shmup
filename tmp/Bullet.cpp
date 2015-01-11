@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:17:35 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 08:55:54 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/11 09:02:10 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int			Bullet::getY( void ) const {
 	return this->_Y;
 }
 
-int			Bullet::getDomage( void ) const {
-	return this->_domage;
+int			Bullet::getDamage( void ) const {
+	return this->_damage;
 }
 
 int 		Bullet::getC( void ) const {
@@ -71,6 +71,9 @@ int 		Bullet::getC( void ) const {
 }
 
 int			Bullet::collide( Bullet * bullet ) {
+	if (bullet) {
+		return 1;
+	}
 	return 0;
 }
 

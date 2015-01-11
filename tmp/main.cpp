@@ -24,7 +24,6 @@ int main(int ac, char **av)
 		game = init_game(av[1]);
 
 		game->initMap(MAP_WIDTH, HEIGHT, 0, 0);
-		game->initScore(SCORE_WIDTH, HEIGHT, 0, MAP_WIDTH + 1);
 		game->doLoop();
 		MapWindow::closeScreen();
 	} else {

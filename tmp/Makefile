@@ -6,9 +6,9 @@
 #    By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/11 08:35:09 by mcassagn          #+#    #+#              #
-#    Updated: 2015/01/11 08:42:42 by mcassagn         ###   ########.fr        #
+#    Updated: 2015/01/11 09:03:43 by mcassagn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-	/usr/bin/g++ -Wall -Werror -Wextra -I . *.cpp
+	/usr/bin/g++ -Wall -Werror -Wextra -I . -lncurses *.cpp
