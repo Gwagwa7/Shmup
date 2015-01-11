@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 22:36:43 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 01:37:19 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,25 @@ Enemy&					Enemy::operator=( Enemy const & rhs ) {
 void					Enemy::attack( void ) {
 	int		ind = -1;
 
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < NB_BULLET; i++) {
 		if (this->_bullets[i] == NULL) {
 			ind = i;
 			break ;
 		}
 	}
-	this->_bullets[ind] = new Bullet(this->_X + 1, this->_Y);
+	if (ind != -1) {
+		this->_bullets[ind] = new Bullet(this->_X + 1, this->_Y);
+	}
 }
 
-void					Enemy::update( void ) {
+int						Enemy::update( void ) {
 	if (this->_bullets) {
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < NB_BULLET; i++) {
 			if (this->_bullets[i] != NULL) {
-				this->_bullets[i]->update();
+				if (this->_bullets[i]->update() == 0) {
+					delete this->_bullets[i];
+					this->_bullets[i] = NULL;
+				}
 			}
 		}
 	}

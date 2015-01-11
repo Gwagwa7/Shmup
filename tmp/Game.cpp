@@ -6,7 +6,7 @@
 /*   By: apantiez <apantiez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:39:52 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/11 00:49:48 by apantiez         ###   ########.fr       */
+/*   Updated: 2015/01/11 01:37:56 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Game::~Game( void ) {
 
 Game&			Game::operator=( Game const & rhs ) {
 	this->_score = rhs._score;
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < NB_ENTITY; i++) {
 		this->_entities[i] = rhs._entities[i];
 	}
 	return *this;
@@ -67,13 +67,13 @@ void			Game::doLoop( void ) {
 		this->renderDisplay();
 		diff = clock() - time_start;
 		tmp = ((float)diff)/CLOCKS_PER_SEC;
-		this->sleepcp( 30 - tmp);
+		this->sleepcp( 50 - tmp);
 	}
 }
 
 void			Game::sleepcp( int millisecond )
 {
-	if (millisecond <= 0)
+	if (millisecond > 0)
 	{
 		clock_t time_end;
 	    time_end = clock() + millisecond * CLOCKS_PER_SEC/1000;
@@ -83,11 +83,16 @@ void			Game::sleepcp( int millisecond )
 	}
 }
 
+//void			Game::checkCollide( IGameEntity * entity ) {
+	
+//}
+
 void			Game::updateEntities( void ) {
 	this->getPlayerShip()->update();
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < NB_ENTITY; i++) {
 		if (this->_entities[i]) {
 			this->_entities[i]->update();
+			//this->checkCollide(this->_entities[i]);
 		}
 	}
 }
@@ -100,8 +105,8 @@ void			Game::renderDisplay( void ) {
 	this->getMapWindow()->clear();
 	this->getScoreWindow()->clear();
 	this->getMapWindow()->drawWindow(spaceShip);
-//	this->getMapWindow()->drawWindow(this->_entities, 50);
-	this->getMapWindow()->drawWindow(bullets, 50);
+//	this->getMapWindow()->drawWindow(this->_entities, NB_ENTITY);
+	this->getMapWindow()->drawWindow(bullets, NB_BULLET);
 	this->getScoreWindow()->drawWindow(this);
 	this->getMapWindow()->refresh();
 	this->getScoreWindow()->refresh();

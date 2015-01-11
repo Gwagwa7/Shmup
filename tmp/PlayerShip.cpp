@@ -6,13 +6,14 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:41:57 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 23:55:53 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 01:39:14 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <PlayerShip.hpp>
 #include <Bullet.hpp>
 #include <iostream>
+#include <ctime>
 
 PlayerShip::PlayerShip( void ) : ASpaceShip(100,  60, 50, 10, 10, 'P') {
 	this->_live = 3;
@@ -35,25 +36,31 @@ PlayerShip::~PlayerShip( void ) {
 
 void					PlayerShip::attack( void ) {
 	int		ind = -1;
+	time_t	timer = time(NULL);
 
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < NB_BULLET; i++) {
 		if (this->_bullets[i] == NULL) {
 			ind = i;
 			break ;
 		}
 	}
-	this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
+	if (ind != -1) {
+		this->_bullets[ind] = new Bullet(this->_X, this->_Y + 1);
+	}
 }
 
 int						PlayerShip::getLive( void ) const {
 	return this->_live;
 }
 
-void					PlayerShip::update( void ) {
+int						PlayerShip::update( void ) {
 	if (this->_bullets) {
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < NB_BULLET; i++) {
 			if (this->_bullets[i] != NULL) {
-				this->_bullets[i]->update();
+				if (this->_bullets[i]->update() == 0) {
+					delete this->_bullets[i];
+					this->_bullets[i] = NULL;
+				}
 			}
 		}
 	}

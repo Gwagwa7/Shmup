@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:36:05 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 23:33:48 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 01:36:55 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PlayerShip : public ASpaceShip {
 		PlayerShip&		operator=( PlayerShip const & rhs );
 		void		attack( void );
 		int			getLive( void ) const;
-		void		update( void );
+		int			update( void );
 };
 
 #endif

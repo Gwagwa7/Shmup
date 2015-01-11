@@ -6,7 +6,7 @@
 /*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:48:18 by mcassagn          #+#    #+#             */
-/*   Updated: 2015/01/10 23:37:11 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/11 01:07:03 by mcassagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void			ASpaceShip::move( int key ) {
 }
 
 void			ASpaceShip::initBullets( void ) {
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < NB_BULLET; i++) {
 		this->_bullets[i] = NULL;
 	}
 }
